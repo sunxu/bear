@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# get path of this file
+file_path="`dirname $BASH_SOURCE`"
+
+# add bear bin path
+export PATH="${file_path}/../bin:${PATH}"
+
+# add alias 
+for file in `ls ${file_path}/alias`
+do
+    source ${file_path}"/alias/"$file
+done
+
+
