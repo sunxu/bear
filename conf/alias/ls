@@ -1,0 +1,7 @@
+alias ls='ls --color=auto'
+alias la="ls -a"
+alias ll="ls -lh"
+alias lz="ls -lsh"
+alias lt="ls -lth"
+alias lr="find ./ | less"
+
