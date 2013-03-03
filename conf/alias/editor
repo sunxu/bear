@@ -1,5 +1,5 @@
-alias vim="/home/sunxu/vim-install/bin/vim"
 alias e="vi"
+alias vi="vim"
 alias l="less"
 
 
