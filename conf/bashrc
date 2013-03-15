@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 # get path of this file
-home="`dirname $BASH_SOURCE`"
+home="`dirname $BASH_SOURCE`/../"
 
 # add bear bin path
-export PATH="${home}/../bin:${PATH}"
+export PATH="${home}/bin:${PATH}"
 
 # add alias 
-for file in `ls ${home}/alias`
+for file in `ls ${home}/conf/alias`
 do
-    source ${home}"/alias/"$file
+    source ${home}"/conf/alias/"$file
 done
 
 
