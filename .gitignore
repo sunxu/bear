@@ -24,3 +24,6 @@
 
 # Tar files
 *.tar*
+
+# Deps files
+deps/vim/*
