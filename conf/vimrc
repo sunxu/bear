@@ -28,8 +28,8 @@
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" >> General
+
+" General {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use Vim settings, rather than Vi settings (much better!)
 " This must be first, because it changes other options as a side effect
@@ -64,8 +64,9 @@ endif
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" >> User interface
+" }}}
+
+" User interface {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to keep above and below the cursor
 set scrolloff=7
@@ -111,8 +112,9 @@ set novisualbell
 " Turn off screen flash
 set t_vb=
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" >> Search pattern
+" }}}
+
+" Search pattern {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ignore case
 set ignorecase
@@ -132,8 +134,9 @@ set magic
 " Disable search wrap around the end of the file.
 set nowrapscan
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" >> Colors and fonts
+" }}}
+
+" Colors and fonts {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Switch on syntax highlighting
 syntax enable
@@ -153,8 +156,9 @@ else
     au BufWinEnter * let w:m2=matchadd('ColorColumn', '\%<102v.\%>101v', -1)  
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" >> Tab and indent
+" }}}
+
+" Tab and indent {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
@@ -180,8 +184,9 @@ set smartindent
 " Specify the key sequence that toggles the 'paste' option
 set pastetoggle=<F2>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" >> File, text and backup
+" }}}
+
+" File, text and backup {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set utf8 as standard encoding 
 set encoding=utf8
@@ -210,8 +215,9 @@ set textwidth=80
 " Turn off automatic creation of backup files
 set nobackup
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" >> Mapping keys
+" }}}
+
+" Mapping keys {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Treat long lines as break lines
 map j gj
@@ -226,5 +232,8 @@ map k gk
 " Exit insert mode
 imap qq <Esc>
 
+" }}}
 
+
+" vim: foldmethod=marker
 
