@@ -1,0 +1,230 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Maintainer : 
+"       Sun Xu
+"           - sunxu.name@gmail.com
+"
+" Version : 
+"       0.1 - 2013/03/10 15:37:23
+"
+" Based on :
+"       Amir Salihefendic 
+"           - http://amix.dk/vim/vimrc.html
+" 
+" Configure :
+"       ./configure --disable-darwin --enable-perlinterp --enable-tclinterp 
+"           --enable-pythoninterp --enable-python3interp --enable-rubyinterp 
+"           --enable-cscope --disable-gui --without-x --with-features=huge
+"           --prefix=EPREFIX
+"
+" Sections : 
+"       -> General
+"       -> User interface
+"       -> Search pattern
+"       -> Mapping keys
+"       -> Colors and fonts
+"       -> Tab and indent
+"       -> File, text and backup
+"       -> Mapping keys
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" >> General
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use Vim settings, rather than Vi settings (much better!)
+" This must be first, because it changes other options as a side effect
+set nocompatible
+
+" Set how many lines of history VIM has to remember
+set history=500
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Set leader key
+let mapleader=","
+
+" Set working directory to the current file
+set autochdir
+
+" Change the terminal's title
+set title
+
+" A buffer becomes hidden when it is abandoned
+set hidden
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+
+" Time in ms waited for a key code or mapped key sequence to complete
+if exists('+tmenu')
+    set tmenu=500
+endif
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" >> User interface
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set 7 lines to keep above and below the cursor
+set scrolloff=7
+
+" Display line numbers
+set number
+
+" Set line number column width
+set numberwidth=4
+
+" Highlight the screen line of the cursor
+set cursorline
+
+" Turn on the Wild menu
+set wildmenu
+
+" Show the line and column number of the cursor position
+set ruler
+
+" Height of the command bar
+set cmdheight=2
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" Show current mode
+set showmode
+
+" Show incomplete commands
+set showcmd
+
+" How many tenths of a second to blink when matching brackets
+if exists('+match')
+    set match=2
+endif
+
+" turn off error beep
+set noerrorbells
+
+" Turn off visual bell
+set novisualbell
+
+" Turn off screen flash
+set t_vb=
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" >> Search pattern
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ignore case
+set ignorecase
+
+" Try to be smart about cases 
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Make search act like search in modern browsers
+set incsearch
+
+" Use 'magic' patterns (extended regular expressions).
+set magic
+
+" Disable search wrap around the end of the file.
+set nowrapscan
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" >> Colors and fonts
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Switch on syntax highlighting
+syntax enable
+
+" Overrule settings with the defaults
+syntax on
+
+" Set color scheme 
+colorscheme desert
+
+" Highlights too long lines
+if exists('+colorcolumn')
+    set colorcolumn=81,101
+else
+    highlight ColorColumn term=reverse ctermbg=1 guibg=LightRed
+    au BufWinEnter * let w:m1=matchadd('ColorColumn', '\%<82v.\%>81v', -1)  
+    au BufWinEnter * let w:m2=matchadd('ColorColumn', '\%<102v.\%>101v', -1)  
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" >> Tab and indent
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs
+set smarttab
+
+" Number of spaces that a <Tab> counts for while performing editing operations
+set softtabstop=4
+
+" Number of spaces to use for each step of (auto)indent.
+set shiftwidth=4
+
+" Number of spaces that a <Tab> in the file counts for
+set tabstop=4
+
+" Auto indent
+set autoindent 
+
+" Smart indent
+set smartindent 
+
+" Specify the key sequence that toggles the 'paste' option
+set pastetoggle=<F2>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" >> File, text and backup
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set utf8 as standard encoding 
+set encoding=utf8
+
+" Specify which file formats will be tried when read files
+set fileformats=unix,dos,mac
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.so*,*.a,*.pyc,*.swp
+
+" which characters may cause a line break
+set breakat=" ^I!@*-+;:,./?"
+
+" Only wrap at a character in the breakat option
+set linebreak
+
+" Allow backspace and cursor keys to wrap 
+set whichwrap+=<,>,h,l
+
+" Wrap lines
+set wrap 
+
+" Set the wrap width
+set textwidth=80
+
+" Turn off automatic creation of backup files
+set nobackup
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" >> Mapping keys
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Treat long lines as break lines
+map j gj
+map k gk
+
+" Arrow keys are unacceptable
+"map <Left> <Nop>
+"map <Right> <Nop>
+"map <Up> <Nop>
+"map <Down> <Nop>
+
+" Exit insert mode
+imap qq <Esc>
+
+
+
