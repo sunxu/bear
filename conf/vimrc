@@ -4,7 +4,7 @@
 "           - sunxu.name@gmail.com
 "
 " Version : 
-"       0.1 - 2013/03/10 15:37:23
+"       0.2 - 2013/03/17 11:58:53
 "
 " Based on :
 "       Amir Salihefendic 
@@ -68,6 +68,9 @@ set lazyredraw
 
 " User interface {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use all the colors, all 256 of the possible colors in the universe
+set t_Co=256
+
 " Set 7 lines to keep above and below the cursor
 set scrolloff=7
 
@@ -85,6 +88,16 @@ set wildmenu
 
 " Show the line and column number of the cursor position
 set ruler
+
+" Always show status line
+set laststatus=2
+
+" Content of the status line
+set statusline=%<%f\                                            " Filename
+set statusline+=%w%h%m%r                                        " Options
+set statusline+=\ [%{&ff}/%Y]                                   " Filetype
+set statusline+=\ [%{getcwd()}]                                 " Current dir
+set statusline+=%=%-40.(line=%l\ col=%c%V\ totlin=%L\ \ %p%%%)  " File nav info
 
 " Height of the command bar
 set cmdheight=2
@@ -131,8 +144,8 @@ set incsearch
 " Use 'magic' patterns (extended regular expressions).
 set magic
 
-" Disable search wrap around the end of the file.
-set nowrapscan
+" Search wrap around the end of the file.
+set wrapscan
 
 " }}}
 
@@ -194,8 +207,16 @@ set encoding=utf8
 " Specify which file formats will be tried when read files
 set fileformats=unix,dos,mac
 
-" Ignore compiled files
-set wildignore=*.o,*~,*.so*,*.a,*.pyc,*.swp
+" Ignored when completing files or directory names
+set wildignore+=.hg,.svn,CVS,.git               " Ignore VCS files
+set wildignore+=*.o,*.a,*.so                    " Ignore compiled binaries
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.bmp  " Ignore images
+set wildignore+=*.pdf                           " Ignore PDF files
+set wildignore+=*.pyc,*.pyo                     " Ignore compiled Python files
+set wildignore+=*~,*.sw?                        " Ignore swap files
+set wildignore+=*.DS_Store                      " Ignore OSX shit
+set wildignore+=desktop.ini,Thumbs.db           " Ignore Windows shit
+set wildignore+=.sconsign.dblite                " Ignore scons shit
 
 " which characters may cause a line break
 set breakat=" ^I!@*-+;:,./?"
@@ -212,16 +233,58 @@ set wrap
 " Set the wrap width
 set textwidth=80
 
+" The kind of folding used for the current window
+set foldmethod=syntax
+
+" View the text with folds
+set foldenable
+
 " Turn off automatic creation of backup files
 set nobackup
 
 " }}}
 
 " Mapping keys {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Introduction about key-mapping {{{
+" ******************************************************************************
+" [?]map[?]         - Allow for nested and recursive use of mappings
+" [?]noremap[?]     - To avoid nested and recursive mappings
+" [?]unmap[?]       - Remove the mapping for the modes 
+" [?]mapclear[?]    - Remove ALL mappings for the modes 
+" 
+" The character in the first or last column is: 
+" n - Normal mode: When typing commands
+" x - Visual mode: When typing commands while the Visual area is highlighted
+" i - Insert mode. These are also used in Replace mode
+" s - Select mode: like Visual mode but typing text replaces the selection
+" o - Operator-pending mode: When an operator is pending (after "d", "y", etc.) 
+" c - Command-line mode: When entering a ":" or "/" command
+" v - Visual and Select
+" ! - Insert and Command-line
+" l - Insert, Command-line and Lang-Arg
+" <Space> - Normal, Visual, Select and Operator-pending
+" 
+" Overview of which map command works in which mode:
+"                   commands            Normal  Visual+Select   Operator-pending
+" :map  :noremap    :unmap  :mapclear   yes     yes             yes
+" :nmap :nnoremap   :nunmap :nmapclear  yes     -               -
+" :vmap :vnoremap   :vunmap :vmapclear  -       yes             -
+" :omap :onoremap   :ounmap :omapclear  -       -               yes
+"                   commands            Visual  Select ~
+" :vmap :vnoremap   :vunmap :vmapclear  yes     yes
+" :xmap :xnoremap   :xunmap :xmapclear  yes     -
+" :smap :snoremap   :sunmap :smapclear  -       yes
+"                   commands            Insert  Command-line    Lang-Arg ~
+" :map! :noremap!   :unmap! :mapclear!  yes     yes             -
+" :imap :inoremap   :iunmap :imapclear  yes     -               -
+" :cmap :cnoremap   :cunmap :cmapclear  -       yes             -
+" :lmap :lnoremap   :lunmap :lmapclear  yes*    yes*            yes*
+" ******************************************************************************
+" }}} 
 " Treat long lines as break lines
-map j gj
-map k gk
+nnoremap j gj
+nnoremap k gk
 
 " Arrow keys are unacceptable
 "map <Left> <Nop>
@@ -230,8 +293,19 @@ map k gk
 "map <Down> <Nop>
 
 " Exit insert mode
-imap qq <Esc>
+inoremap qq <Esc>
 
+" Show current time in the last line of the screen
+nnoremap <leader>time :echo strftime('%Y/%m/%d %H:%M:%S')<CR>
+
+" Toggle number
+nnoremap <silent><leader>nu :set nu! <CR>
+
+" Toggle relative number
+if exists('+rnu')
+    nnoremap <silent><leader>rnu :set rnu! <CR>
+endif
+    
 " }}}
 
 
