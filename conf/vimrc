@@ -1,14 +1,14 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer : 
 "       Sun Xu
-"           - sunxu.name@gmail.com
+"               - sunxu.name@gmail.com
 "
 " Version : 
-"       0.2 - 2013/03/17 11:58:53
+"       0.2.1   - 2013/03/19 16:46:23
 "
 " Based on :
 "       Amir Salihefendic 
-"           - http://amix.dk/vim/vimrc.html
+"               - http://amix.dk/vim/vimrc.html
 " 
 " Configure :
 "       ./configure --disable-darwin --enable-perlinterp --enable-tclinterp 
@@ -17,14 +17,15 @@
 "           --prefix=EPREFIX
 "
 " Sections : 
-"       -> General
-"       -> User interface
-"       -> Search pattern
-"       -> Mapping keys
-"       -> Colors and fonts
-"       -> Tab and indent
-"       -> File, text and backup
-"       -> Mapping keys
+"               -> General
+"               -> User interface
+"               -> Search pattern
+"               -> Mapping keys
+"               -> Colors and fonts
+"               -> Tab and indent
+"               -> File, text and backup
+"               -> Mapping keys
+"               -> Plugins
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -61,8 +62,8 @@ if exists('+tmenu')
     set tmenu=500
 endif
 
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
+" Redraw the screen right now
+set redraw
 
 " }}}
 
@@ -307,6 +308,84 @@ if exists('+rnu')
 endif
     
 " }}}
+
+" Plugins {{{
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -- Calendar with Lunar {{{
+"   -- http://www.vim.org/scripts/script.php?script_id=3957
+nnoremap <leader>date :Calendar <CR>
+" }}}
+
+" -- MRU : Manage most recently used files {{{
+"   -- http://www.vim.org/scripts/script.php?script_id=521
+nnoremap <leader>mru :MRU <CR>
+" }}}
+
+" -- Mini Buffer Explorer : Elegant buffer explorer {{{
+"   --http://www.vim.org/scripts/script.php?script_id=159
+" Put new window above current or on the left for vertical split 
+let g:miniBufExplSplitBelow=0  
+" Always open mini buffer explorer
+let g:miniBufExplorerMoreThanOne=1
+" Map Control + Vim Direction Keys [hjkl] to window movement commands
+let g:miniBufExplMapWindowNavVim = 1
+" Map Control + Arrow Keys to window movement commands
+let g:miniBufExplMapWindowNavArrows = 1
+" Enable <C-TAB> and <C-S-TAB> to bring up the next or previous buffer
+let g:miniBufExplMapCTabSwitchBufs = 1
+" Enable <C-TAB> and <C-S-TAB> to move to the next and previous window
+let g:miniBufExplMapCTabSwitchWindows = 1
+" }}}
+
+" -- The NERD tree : A tree explorer plugin for navigating the filesystem {{{
+"   -- http://www.vim.org/scripts/script.php?script_id=1658
+" Display the bookmarks table on startup
+let g:NERDTreeShowBookmarks=1
+nnoremap <leader>e :NERDTreeToggle<cr>
+" }}}
+
+" -- Tag List : Source code browser {{{
+"   -- http://www.vim.org/scripts/script.php?script_id=273
+nnoremap <leader>t :TlistToggle<CR>
+" Automatically highlight the current tag in the taglist
+let Tlist_Auto_Highlight_Tag=1
+" Automatically update the taglist to include newly edited files
+let Tlist_Auto_Update=1
+" Close Vim if the taglist is the only window
+let Tlist_Exit_OnlyWindow=1
+" Close tag folds for inactive buffers.
+let Tlist_File_Fold_Auto_Close=1
+" Jump to taglist window on open
+let Tlist_GainFocus_On_ToggleOpen=1
+" On entering a buffer, automatically highlight the current tag
+let Tlist_Highlight_Tag_On_BufEnter=1
+" Increase the Vim window width to accommodate the taglist window
+let Tlist_Inc_Winwidth=1
+" Process files even when the taglist window is closed
+let Tlist_Process_File_Alway=1
+" Show tags for the current buffer only
+let Tlist_Show_One_File=1
+" Place the taglist window on the right side
+let Tlist_Use_Right_Window=1
+" Horizontally split taglist window height
+"let Tlist_WinHeight=
+" Vertically split taglist window width
+"let Tlist_WinWidth=
+" }}}
+
+" -- Visual Mark : Similar to UltraEdit's bookmark {{{
+"   -- http://www.vim.org/scripts/script.php?script_id=1026
+map <unique> <F3> <Plug>Vm_goto_next_sign
+map <unique> <F4> <Plug>Vm_goto_prev_sign
+" }}}
+
+" -- A : Alternate Files quickly {{{
+"   -- http://www.vim.org/scripts/script.php?script_id=31
+nnoremap <silent> <F12> :A<CR> 
+" }}}
+
+" }}}
+
 
 
 " vim: foldmethod=marker
