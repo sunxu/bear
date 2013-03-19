@@ -27,3 +27,6 @@
 
 # Deps files
 deps/vim/*
+
+# Tmp files
+conf/vim/doc/tags
