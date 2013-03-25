@@ -4,7 +4,7 @@
 "               - sunxu.name@gmail.com
 "
 " Version : 
-"       0.2.1   - 2013/03/19 16:46:23
+"       0.2.2   - 2013/03/19 16:46:23
 "
 " Based on :
 "       Amir Salihefendic 
@@ -14,7 +14,7 @@
 "       ./configure --disable-darwin --enable-perlinterp --enable-tclinterp 
 "           --enable-pythoninterp --enable-python3interp --enable-rubyinterp 
 "           --enable-cscope --disable-gui --without-x --with-features=huge
-"           --prefix=EPREFIX
+"           --enable-multibyte --prefix=EPREFIX
 "
 " Sections : 
 "               -> General
@@ -383,6 +383,37 @@ map <unique> <F4> <Plug>Vm_goto_prev_sign
 "   -- http://www.vim.org/scripts/script.php?script_id=31
 nnoremap <silent> <F12> :A<CR> 
 " }}}
+
+" -- Grep : Grep search tools integration with Vim  {{{
+"   -- http://www.vim.org/scripts/script.php?script_id=311
+" Invoke the :Grep command to search for the keyword under the cursor
+nnoremap <silent> <F5> :Rgrep<CR>
+" Specify to default for the files in which to search for the pattern
+let Grep_Default_Filelist='*.c *.cpp *.h *.hh *.py'
+" Specify the list of directories to skip while doing recursive searches
+let Grep_Skip_Dirs='.git .svn'
+" Specify the list of files to skip while doing recursive searches
+let Grep_Skip_Files='*.o *.a *.so *.pyc *.bak *~ *.swp *.swo cscope* core *.log'
+" }}}
+
+" -- SuperTab : Do all your insert-mode completion with Tab {{{
+"   -- http://www.vim.org/scripts/script.php?script_id=1643
+" }}}
+
+" -- Neocomplcache : Ultimate auto completion system {{{
+"   -- http://www.vim.org/scripts/script.php?script_id=2620
+" }}}
+
+" -- DrawIt : Ascii drawing plugin {{{
+"   -- http://www.vim.org/scripts/script.php?script_id=40
+" Start DrawIt
+map <unique> <Leader>di <Plug>DrawItStart
+" Stop  DrawIt
+map <unique> <Leader>ds <Plug>DrawItStop
+" }}}
+
+
+
 
 " }}}
 
