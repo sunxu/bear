@@ -69,7 +69,7 @@ make install > /dev/null 2>&1
 echo "    succuss"
 
 # clear
-#rm -rf ${tempath}
+rm -rf ${tempath}
 
 # add bin search path
 echo "export PATH=${home}/deps/vim/bin:\${PATH}" >> ~/.bashrc
