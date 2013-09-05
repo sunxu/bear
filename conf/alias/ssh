@@ -1,11 +1,9 @@
-alias log14="ssh sunxu@172.100.101.14"
-alias log15="ssh sunxu@172.100.101.15"
-alias log16="ssh sunxu@172.100.101.16"
+alias log106="ssh sunxu@172.100.101.106"
 alias log150="ssh sunxu@172.100.101.150"
 alias log151="ssh sunxu@172.100.101.151"
-
-alias logpro="ssh sunxu@172.16.96.11"
-alias logwin="rdesktop 172.100.101.32 & "
+alias log172="ssh sunxu@172.100.101.172"
+alias log173="ssh sunxu@172.100.101.173"
+alias log174="ssh sunxu@172.100.101.174"
 alias logdev="ssh sunxu@dev.qfpay.net "
+alias logdoc='ssh sunxu@172.16.96.11'
 
-alias dev="ssh sunxu@172.100.101.151"

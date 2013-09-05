@@ -1,5 +1,4 @@
 alias e="vi"
-alias vi="vim"
 alias l="less"
-
+alias vi="vim"
 
