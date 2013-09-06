@@ -67,7 +67,7 @@ my $HOME   = $ENV{HOME};
 my $etcdir = '/etc';
 my ($setting, $value);
 my @config_files = ("$etcdir/colordiffrc");
-push (@config_files, "$ENV{HOME}/.colordiffrc") if (defined $ENV{HOME});
+push (@config_files, "$ENV{BEAR}/conf/colordiffrc") if (defined $ENV{BEAR});
 my $config_file;
 my $diff_type = 'unknown';
 
