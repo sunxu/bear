@@ -1,0 +1,15 @@
+alias mv='mv -iv'
+alias cp='cp -iv'
+alias ln='ln -iv'
+
+alias df='df -H'
+alias du='du -ch'
+
+alias bc='bc -l'
+alias su='sudo -i'
+alias wget='wget -c'
+
+alias ports='netstat -tulanp'
+alias path='echo -e ${PATH//:/\\n}'
+
+
