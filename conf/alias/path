@@ -1,5 +1,0 @@
-alias ..="cd .."
-alias ...="cd ../.."
-
-alias rmsvn='find ./ -name .svn| xargs rm -rf'
-

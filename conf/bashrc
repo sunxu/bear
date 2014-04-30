@@ -7,9 +7,6 @@ export BEAR="`dirname $BASH_SOURCE`/../"
 export PATH="${BEAR}/bin:${PATH}"
 
 # add alias 
-for file in `ls ${BEAR}/conf/alias`
-do
-    source ${BEAR}"/conf/alias/"$file
-done
+source ${BEAR}"/conf/alias"
 
 

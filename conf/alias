@@ -1,0 +1,40 @@
+alias vi="vim"
+alias less='less -R'
+
+if [ `uname` == "Darwin" ]; then
+    alias ls='ls -G'
+    command -v gls >/dev/null 2>&1 && alias ls='gls --color=auto'
+elif [ `uname` == "Linux" ]; then
+    alias ls='ls --color=auto'
+fi
+
+alias la="ls -a"
+alias ll="ls -lh"
+alias lz="ls -lsh"
+alias lt="ls -lth"
+alias lr="find ./ | less"
+
+alias ..="cd .."
+alias ...="cd ../.."
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+alias rm='rm -v'
+alias mv='mv -iv'
+alias cp='cp -iv'
+alias ln='ln -iv'
+alias df='df -H'
+alias du='du -ch'
+alias bc='bc -l'
+alias su='sudo -i'
+alias wget='wget -c'
+alias mkdir='mkdir -pv'
+ 
+
+alias rmsvn='find ./ -name .svn| xargs rm -rf'
+alias rmind='rmind_func() { find . -inum $1 -delete; }; rmind_func'
+alias ports='netstat -tulanp'
+alias path='echo -e ${PATH//:/\\n}'
+

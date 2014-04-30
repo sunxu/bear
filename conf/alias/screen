@@ -1,2 +1,0 @@
-alias mod-screen='xrandr --output HDMI-0  --auto --primary'
-

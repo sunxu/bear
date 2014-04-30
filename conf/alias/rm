@@ -1,4 +1,0 @@
-alias rm='rm -v'
-alias rmsvn='find ./ -name .svn| xargs rm -rf'
-alias rmind='rmind_func() { find . -inum $1 -delete; }; rmind_func'
-
