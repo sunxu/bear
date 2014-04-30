@@ -1,15 +1,27 @@
+[user]
+	name = sunxu
+	email = sunxu.name@gmail.com
 [core]
-    editor = vim 
+	editor = vim
+	autocrlf = false
+	safecrlf = true
+[merge]
+	tool = vimdiff
+[color]
+	ui = true
+[push]
+	default = simple
 [alias]
-    cl = clone
-    co = checkout
-    ci = commit
-    st = status
-    br = branch
-    df = diff
-    pl = pull
-    ps = push
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset \
-            -%C(yellow)%d%Creset %s %Cgreen (%cr) %C(bold blue)<%an>%Creset' \
-            --abbrev-commit --
+	cl = clone
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	df = diff
+	pl = pull
+	ps = push
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset \
+			-%C(yellow)%d%Creset %s %Cgreen (%cr) %C(bold blue)<%an>%Creset' \
+			--abbrev-commit --
+	recommit = commit --amend
 
