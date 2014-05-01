@@ -375,8 +375,13 @@ let Tlist_Use_Right_Window=1
 
 " -- Visual Mark : Similar to UltraEdit's bookmark {{{
 "   -- http://www.vim.org/scripts/script.php?script_id=1026
-map <unique> <F3> <Plug>Vm_goto_next_sign
-map <unique> <F4> <Plug>Vm_goto_prev_sign
+if !hasmapto('<Plug>Vm_goto_next_sign')
+  map <unique> <F3> <Plug>Vm_goto_next_sign
+endif
+
+if !hasmapto('<Plug>Vm_goto_prev_sign')
+  map <unique> <F4> <Plug>Vm_goto_prev_sign
+endif
 " }}}
 
 " -- A : Alternate Files quickly {{{
@@ -407,9 +412,13 @@ let Grep_Skip_Files='*.o *.a *.so *.pyc *.bak *~ *.swp *.swo cscope* core *.log'
 " -- DrawIt : Ascii drawing plugin {{{
 "   -- http://www.vim.org/scripts/script.php?script_id=40
 " Start DrawIt
-map <unique> <Leader>di <Plug>DrawItStart
+if !hasmapto('<Plug>DrawItStart')
+  map <unique> <Leader>di <Plug>DrawItStart
+endif
 " Stop  DrawIt
-map <unique> <Leader>ds <Plug>DrawItStop
+if !hasmapto('<Plug>DrawItStop')
+  map <unique> <Leader>ds <Plug>DrawItStop
+endif
 " }}}
 
 
