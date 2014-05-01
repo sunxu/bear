@@ -9,4 +9,9 @@ export PATH="${BEAR}/bin:${PATH}"
 # add alias 
 source ${BEAR}"/conf/alias"
 
+# add completion
+for file in `ls ${BEAR}/completion/`
+do
+    source ${BEAR}"/completion/"$file
+done
 
