@@ -20,12 +20,12 @@
 "               -> General
 "               -> User interface
 "               -> Search pattern
-"               -> Mapping keys
 "               -> Colors and fonts
 "               -> Tab and indent
 "               -> File, text and backup
 "               -> Mapping keys
 "               -> Plugins
+"               -> Syntax checking
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -421,11 +421,24 @@ if !hasmapto('<Plug>DrawItStop')
 endif
 " }}}
 
-
-
-
 " }}}
 
+" Syntax checking {{{
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Php Check
+function! <SID>PhpCheck()
+   let fname = expand("%")
+   let ret=system("php -ddisplay_errors=On -l ".fname." | awk '{if($0 ~ /^No syntax errors/)print -1,$0;else {mt=match($0,/on line [0-9]+/);line=substr($0,RSTART+8,RLENGTH-8);print line,$0;}}'")
+   let errno = substitute(ret,'^\(-\?\d\+\)','\1','')
+   let errmsg = substitute(ret,'^\d\+\s\+\(.*\)','\1','')
+   if(errno>-1)
+       call cursor(errno,0)
+       echon errmsg
+   endif
+endfunction
+au BufWritePost,FileWritePost *.php :call <SID>PhpCheck()
+
+" }}}
 
 
 " vim: foldmethod=marker
