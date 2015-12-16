@@ -4,7 +4,7 @@
 "               - sunxu.name@gmail.com
 "
 " Version : 
-"       0.2.2   - 2013/03/19 16:46:23
+"       0.2.3   - 2015/12/16 23:22:45
 "
 " Based on :
 "       Amir Salihefendic 
@@ -237,8 +237,8 @@ set textwidth=80
 " The kind of folding used for the current window
 set foldmethod=syntax
 
-" View the text with folds
-set foldenable
+" View the text without folds
+set nofoldenable
 
 " Turn off automatic creation of backup files
 set nobackup
@@ -286,6 +286,13 @@ set nobackup
 " Treat long lines as break lines
 nnoremap j gj
 nnoremap k gk
+
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+
+" highlight last inserted text
+nnoremap gV `[v`]
 
 " Arrow keys are unacceptable
 "map <Left> <Nop>
