@@ -32,3 +32,9 @@ deps/bash/*
 
 # Tmp files
 conf/vim/doc/tags
+
+# Unsafe files
+.DS_Store
+__MACOSX
+desktop.ini
+
