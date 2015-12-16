@@ -52,7 +52,7 @@ fun! s:GetVimCmdOutput(cmd)
   let old_lang = v:lang
 
   " Set the language to English
-  " exec ":lan mes en_US"
+  exec ":lan mes POSIX"
 
   let v:errmsg = ''
   let output   = ''
