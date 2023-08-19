@@ -1,27 +1,28 @@
 [user]
-	name = sunxu
-	email = sunxu.name@gmail.com
+    name = sunxu
+    email = sunxu.name@gmail.com
 [core]
-	editor = vim
-	autocrlf = false
-	safecrlf = true
+    editor = vim
+    autocrlf = false
+    safecrlf = true
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [color]
-	ui = true
+    ui = true
 [push]
-	default = simple
+    default = simple
 [alias]
-	cl = clone
-	co = checkout
-	ci = commit
-	st = status
-	br = branch
-	df = diff
-	pl = pull
-	ps = push
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset \
-			-%C(yellow)%d%Creset %s %Cgreen (%cr) %C(bold blue)<%an>%Creset' \
-			--abbrev-commit --
-	recommit = commit --amend
+    cl = clone
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    df = diff
+    pl = pull
+    ps = push
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset \
+            -%C(yellow)%d%Creset %s %Cgreen (%cr) %C(bold blue)<%an>%Creset' \
+            --abbrev-commit --
+    yoyo = !curl https://v1.jinrishici.com/all.txt -s | xargs git commit -m
+    rc = commit --amend
 
